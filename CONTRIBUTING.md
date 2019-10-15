@@ -8,6 +8,7 @@ email, or any other method with the owners of this repository before making a ch
 
 ### Your pull request should consist of the android app you stated in your issue and update the README.md with the name of your app
 
+#### Note that any pull request made without a issue will not be considered unless an issue is made for the PR
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
 ## Pull Request Process
