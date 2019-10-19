@@ -26,3 +26,8 @@ https://tictactoesiddharth.netlify.com/
 #### Modifications Suggested
 ##### 1. Add new subjects like Physics, Chemistry, Computer Science etc
 ##### 2. Increase the number of questions in each subject
+### 5. A Get the Weather App
+#### An app demonstrating the use of API to get weather conditions of city from around the world
+#### Modifications suggested
+###### 1. Show user current temperature, time of the city
+###### 2. Improve UI
