@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "909364828108",
+    "firebase_url": "https://notes-700d6.firebaseio.com",
+    "project_id": "notes-700d6",
+    "storage_bucket": "notes-700d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909364828108:android:0de5b3dd06320fe0",
+        "android_client_info": {
+          "package_name": "com.pro.deepak.com.update"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909364828108-6lip1r1jh0r713090utiekubimlgrqn4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoHH5FrE9nuUCcP8V5XDUwKi4ZSMlisuY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
