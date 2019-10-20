@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">upDate</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="short_label">Add College</string>
+    <string name="long_label">Add Co-curr.</string>
+    <string name="disabled">shortcut is disabled</string>
+</resources>

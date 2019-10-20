@@ -31,3 +31,7 @@ https://tictactoesiddharth.netlify.com/
 #### Modifications suggested
 ###### 1. Show user current temperature, time of the city
 ###### 2. Improve UI
+### 6. A same note taking app - upDate
+#### An app demonstrating the use of firebase
+#### Modifications suggested
+###### 1. Improve UI
