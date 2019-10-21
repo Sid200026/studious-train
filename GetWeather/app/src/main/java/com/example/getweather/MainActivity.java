@@ -1,6 +1,8 @@
 package com.example.getweather;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -48,10 +50,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            CardView cardView = findViewById(R.id.cardView);
             TextView textView = findViewById(R.id.textView2);
             TextView timeView = findViewById(R.id.timeTextId);
             TextView tempView = findViewById(R.id.tempTextId);
-
+            cardView.setVisibility(View.VISIBLE);
             try{
                 JSONObject jsonObject = new JSONObject(s);
 

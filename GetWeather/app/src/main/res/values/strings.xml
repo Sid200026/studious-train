@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Get Weather</string>
     <string name="no_such_city">No such city exists</string>
+    <string name="background">BACKGROUND</string>
+    <string name="get_weather">Get Weather</string>
+    <string name="edittext_hint">Enter a city.... Example: London</string>
+    <string name="check">Check</string>
+    <string name="temp">25 ℉</string>
+    <string name="current_time">Current Time</string>
+    <string name="weather">Weather</string>
 </resources>
