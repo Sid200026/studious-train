@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,13 +9,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="504dp"
-        android:layout_height="736dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background"
-        tools:layout_editor_absoluteY="-3dp" />
+        android:contentDescription="@string/background" />
 
     <TextView
         android:id="@+id/textView"
@@ -22,7 +25,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="70dp"
         android:gravity="center"
-        android:text="Get Weather"
+        android:text="@string/get_weather"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -37,10 +40,12 @@
         android:layout_height="59dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="50dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginStart="18dp"
         android:ellipsize="none"
         android:ems="10"
         android:gravity="center_horizontal|center_vertical"
-        android:hint="Enter a city.... Example: London"
+        android:hint="@string/edittext_hint"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#00E60000"
@@ -49,35 +54,88 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:importantForAutofill="no" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="378dp"
-        android:layout_height="108dp"
-        android:layout_marginBottom="65dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="Weather"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="291dp"
         android:layout_height="85dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:background="#4CFF00"
         android:onClick="checkWeather"
-        android:text="Check"
+        android:text="@string/check"
         android:textColor="#FD0000"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="18dp"
+        app:cardCornerRadius="18dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
+
+
+            <TextView
+                android:id="@+id/tempTextId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:text="@string/temp"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/timeTextId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/current_time"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weather"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tempTextId"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timeTextId" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
