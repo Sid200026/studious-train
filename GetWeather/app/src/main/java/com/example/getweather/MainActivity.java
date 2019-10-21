@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
             } catch(Exception e) {
                 e.printStackTrace();
+                timeView.setVisibility(View.INVISIBLE);
+                tempView.setVisibility(View.INVISIBLE);
                 textView.setText(getResources().getString(R.string.no_such_city));
             }
         }
