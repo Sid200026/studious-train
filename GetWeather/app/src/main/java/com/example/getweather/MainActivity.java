@@ -2,8 +2,12 @@ package com.example.getweather;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -46,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
             cardView.setVisibility(View.VISIBLE);
 
             if (weatherResponse!=null){
+                timeView.setVisibility(View.VISIBLE);
+                tempView.setVisibility(View.VISIBLE);
                 timeView.setText(getDateCurrentTimeZone(weatherResponse.getDt()));
                 String desc = weatherResponse.getWeather().get(0).getDescription();
                 textView.setText(desc.substring(0,1).toUpperCase()+desc.substring(1));
@@ -101,5 +107,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET},1);
+        }
     }
 }
