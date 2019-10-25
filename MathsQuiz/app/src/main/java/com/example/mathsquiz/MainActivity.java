@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     int questionIndex;
     TextView score;
 
-
     public void checkAnswer (View view) {
         Button ans = findViewById(view.getId());
         int val = Integer.parseInt(ans.getTag().toString());
