@@ -35,3 +35,8 @@ https://tictactoesiddharth.netlify.com/
 #### An app demonstrating the use of firebase
 #### Modifications suggested
 ###### 1. Improve UI
+### 7. A Hiker's App
+#### An app displaying current latitude, longitude and height
+#### Modifications suggested
+###### 1. Show user current temperature, time of the city using OpenWeather API
+###### 2. Improve UI
