@@ -9,78 +9,55 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import android.widget.Toast;
+
+import com.example.getweather.retrofit.WeatherAPI;
+import com.example.getweather.models.Response;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+
+import static com.example.getweather.retrofit.WeatherAPI.API_KEY;
+import static com.example.getweather.retrofit.WeatherAPI.UNITS_METRIC;
+
 public class MainActivity extends AppCompatActivity {
 
-    String apiKey = "&appid=c9737f0742612b80d89f965cd648c87a\n";
-
     @SuppressLint("StaticFieldLeak")
-    public class getWeather extends AsyncTask<String, Void, String> {
+    public class getWeather extends AsyncTask<Response, Void, Response> {
 
         @Override
-        protected String doInBackground(String... urls) {
-            StringBuilder result = new StringBuilder();
-            try{
-                URL url = new URL(urls[0]);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                InputStream in = httpURLConnection.getInputStream();
-                InputStreamReader reader = new InputStreamReader(in);
-                int data = reader.read();
-                while(data!=-1)
-                {
-                    result.append((char) data);
-                    data = reader.read();
-                }
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-            return result.toString();
+        protected Response doInBackground(Response... responses) {
+            return responses[0];
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
+        protected void onPostExecute(Response weatherResponse) {
+            super.onPostExecute(weatherResponse);
+
             CardView cardView = findViewById(R.id.cardView);
             TextView textView = findViewById(R.id.textView2);
             TextView timeView = findViewById(R.id.timeTextId);
             TextView tempView = findViewById(R.id.tempTextId);
             cardView.setVisibility(View.VISIBLE);
-            try{
-                JSONObject jsonObject = new JSONObject(s);
 
-                String dateTime = jsonObject.getString("dt");
-                timeView.setText(getDateCurrentTimeZone(Long.parseLong(dateTime)));
-
-                String weather = jsonObject.getString("weather");
-                JSONArray array = new JSONArray(weather);
-                for(int i = 0; i<array.length(); i++) {
-                    JSONObject description = array.getJSONObject(i);
-                    String desc = description.getString("description");
-                    textView.setText(desc.substring(0,1).toUpperCase()+desc.substring(1));
-                }
-
-
-                JSONObject main  = jsonObject.getJSONObject("main");
-                String temp = main.getString("temp");
-                tempView.setText(temp  + " \u2109");
-
-
-            } catch(Exception e) {
-                e.printStackTrace();
+            if (weatherResponse!=null){
+                timeView.setText(getDateCurrentTimeZone(weatherResponse.getDt()));
+                String desc = weatherResponse.getWeather().get(0).getDescription();
+                textView.setText(desc.substring(0,1).toUpperCase()+desc.substring(1));
+                String temp = weatherResponse.getMain().getTemp() + " \u2103";
+                tempView.setText(temp);
+            }else {
                 timeView.setVisibility(View.INVISIBLE);
                 tempView.setVisibility(View.INVISIBLE);
                 textView.setText(getResources().getString(R.string.no_such_city));
             }
+
+
         }
     }
 
@@ -88,15 +65,22 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = findViewById(R.id.editText);
         String cityname = editText.getText().toString();
         String changecity = cityname.substring(0,1).toUpperCase() + cityname.substring(1).toLowerCase();
-        try{
-            getWeather weather = new getWeather();
-            String url = "http://api.openweathermap.org/data/2.5/weather?q="+changecity+apiKey;
-            weather.execute(url).get();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
+        WeatherAPI.Factory.getInstance().getWeather(changecity,API_KEY,UNITS_METRIC).enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                new getWeather().execute(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+    }
 
     public  String getDateCurrentTimeZone(long timestamp) {
         try{
