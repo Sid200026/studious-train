@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             arrayList.add(progress*i);
         }
         ArrayList<String> arrayList2 = new ArrayList<>();
-        for(int i = 0; i<=10; i++)
+        for(int i = 0; i<10; i++)
         {
             arrayList2.add(progress+" * "+i+" = "+arrayList.get(i));
         }
