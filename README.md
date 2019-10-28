@@ -40,7 +40,7 @@ https://tictactoesiddharth.netlify.com/
 #### Modifications suggested
 ###### 1. Show user current temperature, time of the city using OpenWeather API
 ###### 2. Improve UI
-### 7. A Memorable Places App
+### 8. A Memorable Places App
 #### An app that can store the user's favourite locations after he has selected them from the map
 #### Modifications suggested
 ###### 1. Permanently Store the data
