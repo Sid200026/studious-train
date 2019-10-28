@@ -73,6 +73,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="34dp"
         android:layout_marginBottom="34dp"
-        android:src="@android:drawable/ic_media_next"/>
+        android:src="@android:drawable/ic_media_next"
+        app:backgroundTint="@color/red" />
 
 </RelativeLayout>

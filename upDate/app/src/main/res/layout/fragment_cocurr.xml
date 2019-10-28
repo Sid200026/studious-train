@@ -22,6 +22,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="34dp"
             android:layout_marginBottom="34dp"
+            app:backgroundTint="@color/red"
             app:srcCompat="@android:drawable/ic_input_add" />
 
 
