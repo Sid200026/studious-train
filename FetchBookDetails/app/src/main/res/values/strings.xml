@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FetchBookDetails</string>
+    <string name="headline_bookname_enter">Enter any book name or keyword to fetch data</string>
+    <string name="bookinput">Go on..Type</string>
+    <string name="fetch">Fetch</string>
+    <string name="bookcover">BookCover</string>
+    <string name="mtitle">mTitle</string>
+    <string name="mauthor">mAuthor</string>
+    <string name="mdescription">mDescription</string>
+    <string name="mprice">mPrice</string>
+</resources>
