@@ -45,7 +45,7 @@ https://tictactoesiddharth.netlify.com/
 #### Modifications suggested
 ###### 1. Permanently Store the data
 ###### 2. Add delete and modify feature to place
-### 8. FetchBookDetails
+### 9. FetchBookDetails
 #### An app to search book details.User enters any keyword and the book's title, author,price(if available) and description are fetched from Google Books API .
 #### Modifications suggested
 ###### 1. Display more than one book
