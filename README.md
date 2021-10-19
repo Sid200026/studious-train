@@ -51,3 +51,9 @@ https://tictactoesiddharth.netlify.com/
 ###### 1. Display more than one book
 ###### 2. Display more details like rating, preview link etc.
 ###### 3. Improve UI
+### 10. Unit Converter 
+#### This app eases metric unit conversion. User can perform any distance based conversion.
+#### Modifications suggested 
+###### 1. Add splash screen 
+###### 2. Adding more conversion system.
+
